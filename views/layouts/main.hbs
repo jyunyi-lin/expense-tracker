@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  {{!-- Bootstrap --}}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  {{!-- logo --}}
+  <link rel="shortcut icon" href="https://www.flaticon.com/svg/static/icons/svg/516/516498.svg" type="image/x-icon">
+  {{!-- font --}}
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand mb-0 h1" href="/">
+          家庭記帳本
+          <i class="fas fa-search-dollar"></i>
+        </a>
+        {{#if isAuthenticated}}
+        <div class="row justify-content-end align-items-center">
+          <div>
+            <a href="/records/new">
+              <button class="btn btn-warning mr-2" type="button"><i class="mr-2 fas fa-plus"></i>新增支出
+              </button>
+            </a>
+            <a href="/users/logout">
+              <button class="btn btn-info" type="button"><i class="mr-2 fas fa-sign-out-alt"></i>登出
+              </button>
+            </a>
+          </div>
+        </div>
+        {{else}}
+        <a href="/users/login#login-form" class="btn btn-info"><i class="mr-2 fas fa-sign-in-alt"></i>登入</a>
+        {{/if}}
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    {{{ body }}}
+  </main>
+  {{!-- Bootstrap --}}
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  {{!-- Font Awesome --}}
+  <script src="https://kit.fontawesome.com/4a6876fd2b.js" crossorigin="anonymous"></script>
+  {{!-- public --}}
+  {{!--
+  <script src="/javascripts/selectOptions.js"></script> --}}
+</body>
+
+</html>
