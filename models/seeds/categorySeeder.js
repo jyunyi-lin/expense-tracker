@@ -1,20 +1,32 @@
 const Category = require('../category')
 const db = require('../../config/mongoose')
 
-const categories = [
-  ['家居物業', 'fa-home'],
-  ['交通出行', 'fa-shuttle-van'],
-  ['休閒娛樂', 'fa-grin-beam'],
-  ['餐飲食品', 'fa-utensils'],
-  ['其他', 'fa-pen']
-].map(category => ({
-  title: category[0],
-  icon: `<i class="fas ${category[1]}"></i>`
-}))
-
-
 db.once('open', () => {
-  Category.create(categories)
-    .then(() => db.close())
-  console.log('categorySeeder.js is done')
+  const promises = []
+  promises.push(Category.create(
+    {
+      title: "家居物業",
+      icon: '<i class="fas fa-home"></i>'
+    },
+    {
+      title: "交通出行",
+      icon: '<i class="fas fa-shuttle-van"></i>'
+    },
+    {
+      title: "休閒娛樂",
+      icon: '<i class="fas fa-grin-beam"></i>'
+    },
+    {
+      title: "餐飲食品",
+      icon: '<i class="fas fa-utensils"></i>'
+    },
+    {
+      title: "其他",
+      icon: '<i class="fas fa-hand-holding-usd"></i>'
+    }
+  ))
+  Promise.all(promises).then(() => {
+    console.log('Category seed done!')
+    db.close()
+  })
 })
