@@ -86,20 +86,32 @@ router.delete('/:id', (req, res) => {
 })
 
 
-// 類別篩選
-router.get('/', (req, res) => {
-  const filter = req.query.filter
-  if (filter.length === 0) { return res.redirect('/') }
-  Record.find({ category: `${req.query.filter}` })
-    .lean()
-    .then(records => {
-      let totalAmount = 0
-      for (let i = 0; i < records.length; i++) {
-        totalAmount += Number(records[i].amount)
-      }
-      res.render('index', { records, totalAmount, filter })
+// 類別、月份篩選
+router.get('/', async (req, res) => {
+  try {
+    const userId = req.user._id
+    const category = req.query.category
+    const month = req.query.month
+    let records = await Record.find({ userId }).lean().sort({ date: 'asc' })
+    let totalAmount = 0
+
+    if (category) {
+      records = (category === '全類別') ? records : records.filter(record => record.category === category)
+    }
+
+    if (month) {
+      records = (month === '全月份') ? records : records.filter(record => (Number(new Date(record.date).getMonth()) + 1) === Number(month))
+    }
+
+    records.forEach(record => {
+      totalAmount += record.amount
     })
-    .catch(error => console.log(error))
+
+    res.render('index', { records, totalAmount, month, category })
+
+  } catch (err) {
+    console.error(err)
+  }
 })
 
 
