@@ -66,11 +66,11 @@ router.put('/:id', (req, res) => {
   Category.find({ title: updated.category })
     .lean()
     .then(list => { updated.icon = list[0].icon })
-  return Record.findOne({ _id, userId })
-    .then(record => {
-      record = Object.assign(record, updated)
-      return record.save()
-    })
+    .then(Record.findOne({ _id, userId })
+      .then(record => {
+        record = Object.assign(record, updated)
+        return record.save()
+      }))
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
