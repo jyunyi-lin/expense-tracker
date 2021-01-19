@@ -9,8 +9,11 @@ A simple web application based on `node.js` which allows you to track your daily
 - **Add** new expense.
 - **Remove** unnecessary expense.
 - **Edit** or update expense's detailed information.
-- **Filter** expenses by category.
-  ![](https://i.imgur.com/z8cfqgv.png)
+- **Filter** expenses by category & month
+- Available to register with your Email.
+- Available to login via Facebook.
+  ![](https://i.imgur.com/8bYgKuU.png)
+  ![](https://i.imgur.com/T44x5kK.png)
 
 ## Ecosystem
 
