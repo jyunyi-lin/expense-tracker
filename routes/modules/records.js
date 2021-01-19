@@ -35,7 +35,7 @@ router.get('/new', (req, res) => {
 router.post('/new', (req, res) => {
   const expense = req.body
   expense.userId = req.user._id
-  Category.find({ "title": `${expense.category}` })
+  Category.find({ title: expense.category })
     .lean()
     .then(list => {
       expense.icon = list[0].icon
@@ -63,7 +63,7 @@ router.put('/:id', (req, res) => {
   const updated = req.body
   const userId = req.user._id
   const _id = req.params.id
-  Category.find({ "title": `${updated.category}` })
+  Category.find({ title: updated.category })
     .lean()
     .then(list => { updated.icon = list[0].icon })
   return Record.findOne({ _id, userId })
