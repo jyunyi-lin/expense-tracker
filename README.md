@@ -11,7 +11,7 @@ Use following test account to access:
 | -------- | ---------------- |
 | password | 12345678 |
 
-## Introductioncmd-k v
+## Introduction
 
 - Expense lists will be shown in the top-page.
 - **Search** expenses by keyword.
