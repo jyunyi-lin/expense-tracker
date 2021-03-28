@@ -1,13 +1,17 @@
 # Expense-tracker
 
-![](https://i.imgur.com/8bYgKuU.png)
 ![](https://i.imgur.com/T44x5kK.png)
 
 A simple web application based on `node.js` which allows you to track your daily expenses.
 
 Demo - [Heroku](https://obscure-reaches-13602.herokuapp.com)
 
-## Introduction
+Use following test account to access:
+| email | root@example.com |
+| -------- | ---------------- |
+| password | 12345678 |
+
+## Introductioncmd-k v
 
 - Expense lists will be shown in the top-page.
 - **Search** expenses by keyword.
