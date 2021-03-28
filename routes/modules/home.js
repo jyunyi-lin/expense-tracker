@@ -15,6 +15,5 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
 // 匯出路由模組
 module.exports = router

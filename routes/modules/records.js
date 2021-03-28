@@ -3,7 +3,6 @@ const router = express.Router()
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 
-
 // 搜尋支出
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword.trim()
@@ -22,7 +21,6 @@ router.get('/search', (req, res) => {
     })
     .catch(error => console.log(error))
 })
-
 
 // 新增明細
 router.get('/new', (req, res) => {
@@ -85,7 +83,6 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
 // 類別、月份篩選
 router.get('/', async (req, res) => {
   try {
@@ -108,11 +105,9 @@ router.get('/', async (req, res) => {
     })
 
     res.render('index', { records, totalAmount, month, category })
-
   } catch (err) {
     console.error(err)
   }
 })
-
 
 module.exports = router

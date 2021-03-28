@@ -1,6 +1,11 @@
 # Expense-tracker
 
+![](https://i.imgur.com/8bYgKuU.png)
+![](https://i.imgur.com/T44x5kK.png)
+
 A simple web application based on `node.js` which allows you to track your daily expenses.
+
+Demo - [Heroku](https://obscure-reaches-13602.herokuapp.com)
 
 ## Introduction
 
@@ -12,8 +17,6 @@ A simple web application based on `node.js` which allows you to track your daily
 - **Filter** expenses by category and/or month.
 - Available to register with your Email.
 - Available to login via Facebook.
-  ![](https://i.imgur.com/8bYgKuU.png)
-  ![](https://i.imgur.com/T44x5kK.png)
 
 ## Ecosystem
 

@@ -39,7 +39,6 @@ app.use((req, res, next) => {
   next()
 })
 
-
 app.use(routes)
 app.listen(process.env.PORT, () => {
   console.log(`Express is running on http://localhost:${process.env.PORT}`)
